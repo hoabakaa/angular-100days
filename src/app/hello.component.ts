@@ -1,6 +1,21 @@
 import { Component } from "@angular/core";
 @Component({
   selector: 'app-hello',
-  template: `<h2>Hello Cao Nhat Long!</h2>`,
+  // INTERPOLATION
+  template: `<h2>Hello {{user.name}}!</h2>
+  <!-- PROPERTY BINDING -->
+  <input type="text" [value]="user.age" />
+  <!-- EVENT BINDING -->
+  <button (click)="showInfo()">Show Name</button>
+  `,
 })
-export class HelloComponent{}
+export class HelloComponent{
+  user = {
+    name: 'Cao Nhat Long',
+    age: 13
+  }
+
+  showInfo(){
+    alert(this.user.name);
+  }
+}
